@@ -150,6 +150,10 @@ void PanasonicACCNT::control(const climate::ClimateCall &call) {
  * Set the data array to the fields
  */
 void PanasonicACCNT::set_data(bool set) {
+  ESP_LOGD(TAG, "Data[10]: %s", format_hex(data[10]));
+  ESP_LOGD(TAG, "Data[11]: %s", format_hex(data[11]));
+  ESP_LOGD(TAG, "Data[26]: %s", format_hex(data[26]));
+
   this->mode = determine_mode(this->data[0]);
   this->custom_fan_mode = determine_fan_speed(this->data[3]);
 
